@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/Layout.astro"
+
+const allPosts = await Astro.glob('./posts/*.md')
+
+
+---
+
+<Layout title="Blog Index">
+  <p>This is where I will post about my journey learning Astro.</p>
+  <ul>
+    {allPosts.map(e=><li><a href={e.url}>Title: {e.frontmatter.title}; Desc: {e.frontmatter.description}</a></li>)}
+  </ul>
+</Layout>
